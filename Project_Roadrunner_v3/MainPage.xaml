@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Project_Roadrunner_v2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+	shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="textBlock">
+        <my:Map x:Name="map1"
+                    CredentialsProvider="{Binding CredentialsProvider}"
+                    CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"
+                    Center="{Binding Center, Mode=TwoWay}" Hold="map1_Hold">
+
+            <my:Map.Mode>
+                <my:AerialMode ShouldDisplayLabels="True" />
+
+            </my:Map.Mode>
+        </my:Map>
+        <Rectangle x:Name="rect" Fill="Black" Visibility="Collapsed"  HorizontalAlignment="Left" Height="109" Stroke="Black" VerticalAlignment="Top" Width="397" Margin="41,649,0,0"/>
+        <Button x:Name="buttonText" Visibility="Collapsed" Content="This is a sample notification."  Background ="Black" Foreground ="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,649,0,0" FontSize="15" BorderBrush="Black" BorderThickness="0" IsEnabled="False" Width="397"/>
+        <Button x:Name="buttonD" Content="Dismiss" Visibility="Collapsed" Background ="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="191,700,0,0" FontSize="15" Click="buttonD_Click"/>
+
+
+    </Grid>
+
+<phone:PhoneApplicationPage.ApplicationBar>
+    <shell:ApplicationBar x:Name="applicationBar"
+							  IsVisible="False"
+							  IsMenuEnabled="False"
+							  Opacity="0.7">
+
+            <shell:ApplicationBarIconButton Text="Text" IconUri="/Images/text.png" Click="ApplicationBarIconButton_Click_1"  />
+            <shell:ApplicationBarIconButton Text="Alarm" IconUri="/Images/buzz.png" Click="ApplicationBarIconButton_Click_2" />
+            <shell:ApplicationBarIconButton Text="Notify" IconUri="/Images/notification.png" Click="ApplicationBarIconButton_Click_3" />
+        
+        </shell:ApplicationBar>
+</phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
